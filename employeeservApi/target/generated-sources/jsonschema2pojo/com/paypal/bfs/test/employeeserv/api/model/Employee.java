@@ -1,6 +1,7 @@
 
 package com.paypal.bfs.test.employeeserv.api.model;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -22,7 +23,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
     "id",
     "first_name",
-    "last_name"
+    "last_name",
+    "dob",
+    "address"
 })
 public class Employee {
 
@@ -49,6 +52,21 @@ public class Employee {
     @JsonProperty("last_name")
     @JsonPropertyDescription("last name")
     private String lastName;
+    /**
+     * Date of birth, time zone not considered
+     * (Required)
+     * 
+     */
+    @JsonProperty("dob")
+    @JsonPropertyDescription("Date of birth, time zone not considered")
+    private LocalDate dob;
+    /**
+     * Address
+     * 
+     */
+    @JsonProperty("address")
+    @JsonPropertyDescription("Address")
+    private Address address;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -110,6 +128,44 @@ public class Employee {
         this.lastName = lastName;
     }
 
+    /**
+     * Date of birth, time zone not considered
+     * (Required)
+     * 
+     */
+    @JsonProperty("dob")
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    /**
+     * Date of birth, time zone not considered
+     * (Required)
+     * 
+     */
+    @JsonProperty("dob")
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    /**
+     * Address
+     * 
+     */
+    @JsonProperty("address")
+    public Address getAddress() {
+        return address;
+    }
+
+    /**
+     * Address
+     * 
+     */
+    @JsonProperty("address")
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
@@ -135,6 +191,14 @@ public class Employee {
         sb.append("lastName");
         sb.append('=');
         sb.append(((this.lastName == null)?"<null>":this.lastName));
+        sb.append(',');
+        sb.append("dob");
+        sb.append('=');
+        sb.append(((this.dob == null)?"<null>":this.dob));
+        sb.append(',');
+        sb.append("address");
+        sb.append('=');
+        sb.append(((this.address == null)?"<null>":this.address));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

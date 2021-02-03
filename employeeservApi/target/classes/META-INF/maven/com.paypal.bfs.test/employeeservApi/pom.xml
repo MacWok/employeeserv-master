@@ -56,6 +56,12 @@
                     <targetPackage>com.paypal.bfs.test.employeeserv.api.model</targetPackage>
                     <useCommonsLang3>true</useCommonsLang3>
                     <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
+                    <useJodaDates>false</useJodaDates>
+                <useJodaLocalTimes>false</useJodaLocalTimes>
+                <useJodaLocalDates>false</useJodaLocalDates>
+                <!--  includeJsr303Annotations>false</includeJsr303Annotations -->
+                <!--  dateTimeType>java.time.ZonedDateTime</dateTimeType -->
+                <dateType>java.time.LocalDate</dateType>
                 </configuration>
                 <executions>
                     <execution>
